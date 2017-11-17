@@ -140,6 +140,8 @@ function addItemToFront(arr, item) {
   // add the item to the front of the array
   // return the array
   // hint: use the array method .unshift
+  arr.unshift(item);
+  return arr;
 }
 
 function wordsToSentence(words) {
@@ -147,6 +149,15 @@ function wordsToSentence(words) {
   // return a string that is all of the words concatenated together
   // spaces need to be between each word
   // example: ['Hello', 'world!'] -> 'Hello world!'
+  var message = '';
+  for ( var i=0; i < words.length; i++ ) {
+    message = message + words[i];
+
+    if ( i !== words.length - 1 ) {
+      message += ' ';
+    }
+  }
+  return message;
 }
 
 // #15
@@ -189,10 +200,22 @@ function largestNumber(numbers) {
   // numbers is an array of integers
   // return the largest integer
 
-  // var largestNumber = '';
-  // for ( var k = 0; k < numbers.length; k++ ) {
-  //   return
-  // }
+  var largestValue = 0;
+  for ( var k = 0; k < numbers.length - 1; k++ ) {
+    // for ( var l = 1; l < numbers.length; l++ ) {
+    //   if ( numbers[k] > numbers[l] && numbers[k] > largestValue) {
+    //     largestValue = numbers[k];
+    //   }
+    //   else if ( numbers[l] > numbers[k] && numbers[l] > largestValue ) {
+    //     largestValue = numbers[l];
+    //   }
+    // }
+    if ( numbers[k] > largestValue ) {
+      largestValue = numbers[k];
+    }
+  }
+
+  return largestValue;
 }
 
 // Do not modify code below this line.
